@@ -46,9 +46,9 @@ variable "cluster_name" {
   default = "tes-app-cluster"
 }
 
-variable "kubeconfig_path" {
-  description = "Path to the kubeconfig file"
-}
+# variable "kubeconfig_path" {
+#   description = "Path to the kubeconfig file"
+# }
 
 variable "prometheus_namespace" {
   description = "Namespace to install Prometheus"
