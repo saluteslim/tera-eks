@@ -40,3 +40,32 @@ variable "tags" {
     "Owner"       = "Teslim"
   }
 }
+############################################################################################################
+variable "cluster_name" {
+  description = "Name of the Kubernetes cluster"
+  default = "tes-app-cluster"
+}
+
+variable "kubeconfig_path" {
+  description = "Path to the kubeconfig file"
+}
+
+variable "prometheus_namespace" {
+  description = "Namespace to install Prometheus"
+  default     = "prometheus"
+}
+
+variable "grafana_namespace" {
+  description = "Namespace to install Grafana"
+  default     = "grafana"
+}
+
+variable "argocd_namespace" {
+  description = "Namespace to install ArgoCD"
+  default     = "argocd"
+}
+
+variable "grafana_password" {
+  description = "Password for Grafana admin user"
+    default     = "admin"
+}
