@@ -50,18 +50,18 @@ variable "cluster_name" {
 #   description = "Path to the kubeconfig file"
 # }
 
-variable "prometheus_namespace" {
-  description = "Namespace to install Prometheus"
-  default     = "prometheus"
-}
+# variable "prometheus_namespace" {
+#   description = "Namespace to install Prometheus"
+#   default     = "prometheus"
+# }
 
-variable "grafana_namespace" {
-  description = "Namespace to install Grafana"
-  default     = "grafana"
-}
+# variable "grafana_namespace" {
+#   description = "Namespace to install Grafana"
+#   default     = "grafana"
+# }
 
-variable "argocd_namespace" {
-  description = "Namespace to install ArgoCD"
+variable "namespace" {
+  description = "Namespace to install pipeline"
   default     = "argocd"
 }
 
