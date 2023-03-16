@@ -10,9 +10,9 @@ resource "helm_release" "argocd_1" {
   namespace        = "argocd"
   create_namespace = true
 
-  # values = [
-  #   templatefile("~/tera-eks/apps/values.yaml", { env = var.env } )
-  # ]
+  values = [
+    templatefile("apps/chart.yaml", { env = var.env } )
+  ]
 }
 
 resource "helm_release" "argocd_apps" {
@@ -27,9 +27,9 @@ resource "helm_release" "argocd_apps" {
   namespace        = "argocd"
   create_namespace = true
 
-  # values = [
-  #   templatefile("~/tera-eks/apps/values.yaml", { env = var.env })
-  # ]
+  values = [
+    templatefile("apps/values.yaml", { env = var.env })
+  ]
 
   depends_on = [
     helm_release.argocd_1
