@@ -1,4 +1,4 @@
-resource "helm_release" "argocd_1" {
+resource "helm_release" "argocd" {
   count = local.create_workloads == true ? 1 : 0
 
   name       = "argo-cd"
@@ -6,7 +6,6 @@ resource "helm_release" "argocd_1" {
   chart      = "argo-cd"
   version    = "5.23.3"
 
-  #   namespace = kubernetes_namespace.argocd[0].metadata[0].name
   namespace        = "argocd"
   create_namespace = true
 
@@ -32,7 +31,7 @@ resource "helm_release" "argocd_apps" {
   ]
 
   depends_on = [
-    helm_release.argocd_1
+    helm_release.argocd
   ]
 }
 # resource "helm_release" "prometheus" {
