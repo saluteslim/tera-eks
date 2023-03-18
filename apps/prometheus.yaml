@@ -19,7 +19,7 @@ spec:
       targetRevision: 19.7.2
       helm:
         valueFiles:
-          - $exam/terraform/apps/app-values/prometheus.yaml
+          - $exam/apps/app-values/prometheus.yaml
   syncPolicy:
     automated:
       prune: true

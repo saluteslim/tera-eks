@@ -19,7 +19,7 @@ spec:
     targetRevision: 6.52.2
     helm:
       valueFiles:
-        - $exam/terraform/apps/apps-values/grafana.yaml         
+        - $exam/apps/apps-values/grafana.yaml         
   syncPolicy:
     automated:
       prune: true
