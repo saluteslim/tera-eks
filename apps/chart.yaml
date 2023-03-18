@@ -1,8 +1,8 @@
 applications:
     - name: argo-apps
-      namespace: default
+      namespace: argocd
       destination:
-        namespace: default
+        namespace: argocd
         server: https://kubernetes.default.svc
       project: default
       source:
