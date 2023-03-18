@@ -3,7 +3,7 @@
 variable "region" {
   description = "The aws region to deploy to."
   type        = string
-  default     = "eu-west-2"
+  default     = "eu-west-1"
 }
 
 variable "availability_zones_count" {

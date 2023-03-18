@@ -10,7 +10,7 @@ resource "helm_release" "argocd" {
   create_namespace = true
 
   values = [
-    templatefile("apps/chart.yaml", { env = var.env } )
+    templatefile("apps/values.yaml", { env = var.env } )
   ]
 }
 
@@ -22,12 +22,12 @@ resource "helm_release" "argocd_apps" {
   chart      = "argocd-apps"
   version    = "0.0.8"
 
-  #   namespace = kubernetes_namespace.argocd[0].metadata[0].name
+  #   namespace for argocd-apps
   namespace        = "argocd"
   create_namespace = true
 
   values = [
-    templatefile("apps/values.yaml", { env = var.env })
+    templatefile("apps/chart.yaml", { env = var.env })
   ]
 
   depends_on = [

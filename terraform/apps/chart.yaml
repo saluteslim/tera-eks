@@ -6,7 +6,7 @@ applications:
         server: https://kubernetes.default.svc
       project: default
       source:
-        path: argo-apps
+        path: apps
         repoURL: https://github.com/saluteslim/tera-eks.git
         targetRevision: main
         directory:
