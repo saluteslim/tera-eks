@@ -1,0 +1,23 @@
+#ArgoCD Application manifest for the Sock Shop application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sock-shop-apps
+  namespace: default
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+  - repoURL: https://github.com/saluteslim/terapat.git
+    targetRevision: main
+    path: sockshop-manifests    
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
