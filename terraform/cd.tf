@@ -54,5 +54,6 @@ resource "helm_release" "argocd_apps" {
 #     name  = "adminPassword"
 #     value = var.namespace
 # }
+
 # }
 
