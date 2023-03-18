@@ -42,6 +42,7 @@ resource "helm_release" "argocd_apps" {
 #   create_namespace = true
 # }
 
+
 # resource "helm_release" "grafana" {
 #   name      = "grafana"
 #   repository = "https://grafana.github.io/helm-charts"
