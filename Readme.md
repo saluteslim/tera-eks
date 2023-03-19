@@ -171,6 +171,54 @@ use the load balancer to login to the argocd application
 
 ## Connecting ArgoCD to git repo
 
+* Open the repository management menu and click on "Repositories" tab.
 
+* Connect repo using https
+
+* Add the repo url and click on "Connect"
+
+## Setup argocd app of apps
+
+### App Creation Page
+
+* Click on "New App" button
+
+* Fill the form with the following details:
+
+* Application Name: root
+
+* Project: default
+
+* Sync Policy: Automatic
+
+* Sync Options: auto create namespace
+
+* Cluster: https://kubernetes.default.svc
+
+* repo url: select the repo url
+
+* Path: select the path
+
+* Revision: HEAD
+
+* Click on "Create" button
+
+### App Details Page
+
+* Click on "Sync" button
+
+## Deploy other applications using helm charts
+
+Traditionally, in Argo CD, we can deploy applications with configurations in manifests that are the same as those we run ‘kubectl apply’ on. However, in our case, we use Helm charts (because it’s easier).
+
+### The /apps directory is the place where we store all the applications that we want to deploy.
+
+* Go to the argocd application and click on sync button
+
+
+
+* ref: https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terraform-deploy-create-aws-eks-kubernetes-cluster-tf-4134ab22c594
+
+* ref: https://faun.pub/continuous-deployments-of-kubernetes-applications-using-argo-cd-gitops-helm-charts-9df917caa2e4
 
 
