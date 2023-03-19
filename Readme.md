@@ -1,6 +1,4 @@
-# We deploy our microservices-based architecture on Kubernetes and we need to create
-a clear IaaC (Infrastructure as Code) deployment to be able to deploy our services in a
-fast manner.
+# We deploy our microservices-based architecture on Kubernetes and we need to create a clear IaaC (Infrastructure as Code) deployment to be able to deploy our services in afast manner.
 
 ## Setup Details:
 * Provision a webapp of your choosing with nginx/httpd frontend proxy and a database
@@ -22,11 +20,10 @@ Github repo
 After installing the prerequisite, we need to configure the AWS CLI.
 * Configure the AWS CLI
 
-$ aws configure
-```bash AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
-AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
-Default region name [None]: <YOUR_AWS_REGION>
-```
+```bash aws configure ```
+$ AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
+$ AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
+$ Default region name [None]: <YOUR_AWS_REGION>
 
 ## Terraform Iniatial Setup Configuration
 Create an AWS provider. it will be used to interact the resources in AWS such as EKS, VPC, etc.
