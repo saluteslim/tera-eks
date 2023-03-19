@@ -1,4 +1,4 @@
-# We deploy our microservices-based architecture on Kubernetes and we need to create a clear IaaC (Infrastructure as Code) deployment to be able to deploy our services in afast manner.
+# We deploy our microservices-based architecture on Kubernetes and we need to create a clear IaaC (Infrastructure as Code) deployment to be able to deploy our services in a fast manner.
 
 ## Setup Details:
 * Provision a webapp of your choosing with nginx/httpd frontend proxy and a database
@@ -6,15 +6,23 @@
 * Provision the Socks Shop example microservice application -
 https://microservices-demo.github.io/
 
-Prerequisite:
-AWS account
-AWS CLI
-Kubectl
-Terraform
-Helm
-ArgoCD
-Docker
-Github repo
+### Prerequisite:
+
+* AWS account
+
+* AWS CLI
+
+* Kubectl
+
+* Terraform
+
+* Helm
+
+* ArgoCD
+
+* Docker
+
+* Github repo
 
 # Steps:
 After installing the prerequisite, we need to configure the AWS CLI.
@@ -30,7 +38,7 @@ $ AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
 
 $ Default region name [None]: <YOUR_AWS_REGION>
 
-## Terraform Iniatial Setup Configuration
+## Terraform Initial Setup Configuration
 Create an AWS provider. it will be used to interact the resources in AWS such as EKS, VPC, etc.
 * Create a new directory for your project and change into it.
 * Create a new file called provider.tf and add the following ref: terraform/provider.tf
