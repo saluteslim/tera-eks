@@ -14,7 +14,7 @@ spec:
   - repoURL: https://github.com/saluteslim/tera-pat.git
     targetRevision: main
     ref: exam
-    path: $exam/apps/apps-values/    
+    path: $exam/apps/apps-values/manifests/    
   syncPolicy:
     automated:
       prune: true
