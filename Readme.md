@@ -71,7 +71,7 @@ Define data sources for the project.
 * Create a new file called data.tf and add the following ref: terraform/data.tf
 
 ## Terraform outputs
-Define outputs for the project.
+ Define outputs for the project.
 * Create a new file called outputs.tf and add the following ref: terraform/output.tf
 
 ## Let's run the terraform
@@ -85,6 +85,7 @@ $ terraform init
 $ terraform validate
 
 * Plan the terraform
+
 $ terraform plan
 
 * Apply the terraform
@@ -95,29 +96,30 @@ $ terraform apply
 
 * Deploy the argocd application
 
-first, we need to add the cluster to our local kubectl config.
+* first, we need to add the cluster to our local kubectl config.
 
 $ aws eks --region <YOUR_AWS_REGION> update-kubeconfig --name <YOUR_EKS_CLUSTER_NAME>
 
-Create a namespace for the argocd application
+* Create a namespace for the argocd application
 
 $ kubectl create namespace argocd
 
-Add the argocd helm repo
+* Add the argocd helm repo
 
 $ helm repo add argo-cd https://argoproj.github.io/argo-helm -n argocd
 
-Install the argocd application
+* Install the argocd application
 
 $ helm install argocd argo-cd/argo-cd -n argocd
 
-Confirm installation
+* Confirm installation
 
 $ kubectl get pods -n argocd
 
 * Expose the argocd application
 
-by default, the argocd application is not exposed to an external IP address. We need to expose the argocd application to a load balancer.
+by default, the argocd application is not exposed to an external IP address. 
+* We need to expose the argocd application to a load balancer.
 
 $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}' -n argocd
 
