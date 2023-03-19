@@ -13,8 +13,7 @@ spec:
   sources:
   - repoURL: https://github.com/saluteslim/tera-eks.git
     targetRevision: main
-    ref: exam
-    path: $exam/apps/apps-values/manifests/    
+    path: apps/apps-values/manifests/    
   syncPolicy:
     automated:
       prune: true
