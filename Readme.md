@@ -77,45 +77,58 @@ Define outputs for the project.
 ## Let's run the terraform
 
 * Initialize the terraform
+
 $ terraform init
 
 * Validate the terraform
+
 $ terraform validate
 
 * Plan the terraform
 $ terraform plan
 
 * Apply the terraform
+
 $ terraform apply
 
 *After terraform apply, the infrastructure could'nt reploy the argocd application. We need to manually deploy the argocd application.
 
 * Deploy the argocd application
+
 first, we need to add the cluster to our local kubectl config.
+
 $ aws eks --region <YOUR_AWS_REGION> update-kubeconfig --name <YOUR_EKS_CLUSTER_NAME>
 
 Create a namespace for the argocd application
+
 $ kubectl create namespace argocd
 
 Add the argocd helm repo
+
 $ helm repo add argo-cd https://argoproj.github.io/argo-helm -n argocd
 
 Install the argocd application
+
 $ helm install argocd argo-cd/argo-cd -n argocd
 
 Confirm installation
+
 $ kubectl get pods -n argocd
 
 * Expose the argocd application
+
 by default, the argocd application is not exposed to an external IP address. We need to expose the argocd application to a load balancer.
+
 $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}' -n argocd
 
 * Get the argocd application password
+
 $ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d; echo -n argocd
 
 to login to the argocd application
 
 * Get the argocd application load balancer
+
 $ kubectl get svc -n argocd
 
 use the load balancer to login to the argocd application
