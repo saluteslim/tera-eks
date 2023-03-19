@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-  - repoURL: https://github.com/saluteslim/tera-pat.git
+  - repoURL: https://github.com/saluteslim/tera-eks.git
     targetRevision: main
     ref: exam
     path: $exam/apps/apps-values/manifests/    
