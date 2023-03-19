@@ -20,7 +20,9 @@ Github repo
 After installing the prerequisite, we need to configure the AWS CLI.
 * Configure the AWS CLI
 
-``` aws configure ```
+```bash 
+ aws configure
+ ```
 
 $ AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
 
@@ -78,7 +80,9 @@ Define data sources for the project.
 
 * Initialize the terraform
 
-$ terraform init
+```bash
+ terraform init
+```
 
 * Validate the terraform
 
