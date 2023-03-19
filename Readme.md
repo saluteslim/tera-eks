@@ -31,48 +31,48 @@ Default region name [None]: <YOUR_AWS_REGION>
 ## Terraform Iniatial Setup Configuration
 Create an AWS provider. it will be used to interact the resources in AWS such as EKS, VPC, etc.
 * Create a new directory for your project and change into it.
-* Create a new file called provider.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/provider.tf
+* Create a new file called provider.tf and add the following ref: terraform/provider.tf
 
 ## Terraform state file
 Create terraform backend to specify the location of the state file on S3 bucket.
 note: Remote state is a Terraform feature that allows you to store the state file in a remote location. This is useful when you are working with a team and want to share the state file.
-* Create a new file called backend.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/backend.tf
+* Create a new file called backend.tf and add the following ref: terraform/backend.tf
 
 ## Network Setup
 Setup the VPC, Subnets, Internet Gateway, Route Table, Security Group, etc.
-* Create a new file called network.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/network.tf
+* Create a new file called network.tf and add the following ref: terraform/network.tf
 
 ## EKS Cluster Setup
 1. Create an EKS cluster
 2. Setup IAM roles and policies for the cluster
 IAM roles and policies are used to control access to AWS resources. In this case, we will create a role that will allow the EKS cluster to access other AWS resources.
-* Create a new file called eks.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/eks.tf
+* Create a new file called eks.tf and add the following ref: terraform/eks.tf
 
 ## EKS Node Group Setup
 Create a node group to run appplication workloads.
 IAM Role: similar to the cluster role, we will create a role that will allow the nodes to access other AWS resources.
 IAM Policy: Attach the AmazonEKSWorkerNodePolicy, AmazonEKS_CNI_Policy policies and AmazonEC2ContainerRegistryReadOnly policy to the role.
-Create a new file called node.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/node.tf
+Create a new file called node.tf and add the following ref: terraform/node.tf
 
 ## Terraform variables
 Define variables for the project.
-* Create a new file called variables.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/variable.tf
+* Create a new file called variables.tf and add the following ref: terraform/variable.tf
 
 ## Terraform locals
 Define locals for the project.
-* Create a new file called locals.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/locals.tf
+* Create a new file called locals.tf and add the following ref: terraform/locals.tf
 
 ## ArgoCD Setup
 Setup ArgoCD to deploy the application.
-* Create a new file called argocd.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/argocd.tf
+* Create a new file called argocd.tf and add the following ref: terraform/argocd.tf
 
 ## Define data sources
 Define data sources for the project.
-* Create a new file called data.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/data.tf
+* Create a new file called data.tf and add the following ref: terraform/data.tf
 
 ## Terraform outputs
 Define outputs for the project.
-* Create a new file called outputs.tf and add the following ref: https://github.com/saluteslim/tera-eks.git/output.tf
+* Create a new file called outputs.tf and add the following ref: terraform/output.tf
 
 ## Let's run the terraform
 
