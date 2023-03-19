@@ -21,6 +21,7 @@ Github repo
 # Steps:
 After installing the prerequisite, we need to configure the AWS CLI.
 * Configure the AWS CLI
+
 $ aws configure
 ```bash AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
 AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
