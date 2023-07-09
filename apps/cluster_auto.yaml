@@ -1,26 +1,28 @@
-apiVersion: kops/v1alpha2
-kind: Cluster
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: cluster_auto
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  additionalPolicies:
-    node: |
-      [
-        {"Effect":"Allow","Action":["autoscaling:DescribeAutoScalingGroups","autoscaling:DescribeAutoScalingInstances","autoscaling:DescribeLaunchConfigurations","autoscaling:DescribeTags","autoscaling:SetDesiredCapacity","autoscaling:TerminateInstanceInAutoScalingGroup"],"Resource":"*"}
-      ]
-      ...
----
-apiVersion: kops/v1alpha2
-kind: InstanceGroup
-metadata:
-  labels:
-    kops.k8s.io/cluster: my.cluster.internal
-  name: my-instances
-spec:
-  cloudLabels:
-    k8s.io/cluster-autoscaler/enabled: ""
-    k8s.io/cluster-autoscaler/my.cluster.internal: ""
-  image: kops.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
-  machineType: t2.medium
-  maxSize: 4
-  minSize: 0
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+  - repoURL: https://github.com/saluteslim/tera-eks
+    targetRevision: HEAD
+    ref: exam
+  - repoURL: https://kubernetes.github.io/autoscaler
+    chart: cluster-autoscaler
+    targetRevision: 9.29.1
+    # helm:
+    #   valueFiles:
+    #     - $exam/apps/apps-values/grafana.yaml         
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
