@@ -1,0 +1,26 @@
+apiVersion: kops/v1alpha2
+kind: Cluster
+metadata:
+  name: my.cluster.internal
+spec:
+  additionalPolicies:
+    node: |
+      [
+        {"Effect":"Allow","Action":["autoscaling:DescribeAutoScalingGroups","autoscaling:DescribeAutoScalingInstances","autoscaling:DescribeLaunchConfigurations","autoscaling:DescribeTags","autoscaling:SetDesiredCapacity","autoscaling:TerminateInstanceInAutoScalingGroup"],"Resource":"*"}
+      ]
+      ...
+---
+apiVersion: kops/v1alpha2
+kind: InstanceGroup
+metadata:
+  labels:
+    kops.k8s.io/cluster: my.cluster.internal
+  name: my-instances
+spec:
+  cloudLabels:
+    k8s.io/cluster-autoscaler/enabled: ""
+    k8s.io/cluster-autoscaler/my.cluster.internal: ""
+  image: kops.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
+  machineType: t2.medium
+  maxSize: 4
+  minSize: 0
