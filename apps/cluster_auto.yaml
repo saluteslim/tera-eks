@@ -1,7 +1,7 @@
 apiVersion: kops/v1alpha2
 kind: Cluster
 metadata:
-  name: my.cluster.internal
+  name: cluster_auto
 spec:
   additionalPolicies:
     node: |
