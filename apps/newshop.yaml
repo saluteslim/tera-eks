@@ -12,7 +12,7 @@ metadata:
     name: carts
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: carts
@@ -80,7 +80,7 @@ metadata:
     name: carts-db
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: carts-db
@@ -137,7 +137,7 @@ metadata:
     name: catalogue
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: catalogue
@@ -210,7 +210,7 @@ metadata:
     name: catalogue-db
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: catalogue-db
@@ -254,7 +254,7 @@ metadata:
   name: front-end
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: front-end
@@ -326,7 +326,7 @@ metadata:
     name: orders
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: orders
@@ -394,7 +394,7 @@ metadata:
     name: orders-db
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: orders-db
@@ -451,7 +451,7 @@ metadata:
     name: payment
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: payment
@@ -521,7 +521,7 @@ metadata:
     name: queue-master
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: queue-master
@@ -573,7 +573,7 @@ metadata:
     name: rabbitmq
   namespace: sock-shop
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: rabbitmq
