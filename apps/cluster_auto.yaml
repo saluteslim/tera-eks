@@ -33,7 +33,7 @@ spec:
           # Enable autodiscovery for `cloudProvider=clusterapi`, for groups matching `autoDiscovery.labels`.
           # Enable autodiscovery for `cloudProvider=gce`, but no MIG tagging required.
           # Enable autodiscovery for `cloudProvider=magnum`, for groups matching `autoDiscovery.roles`.
-          clusterName:  # cluster.local
+          clusterName:  Alt-eks
         
           # autoDiscovery.tags -- ASG tags to match, run through `tpl`.
           tags:
@@ -88,6 +88,13 @@ spec:
         awsSecretAccessKey: "TfkI1nqcHAb2qkp54TroVa7JpPYshHsyKtkbvwYf"
 
         cloudProvider: aws
+
+        sslCertPath: /etc/kubernetes/pki/ca.crt
+
+        rbac:
+        ## If true, create & use RBAC resources
+        ##
+        create: true
 
   syncPolicy:
     automated:
