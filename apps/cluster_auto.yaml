@@ -89,7 +89,7 @@ spec:
         rbac:
         ## If true, create & use RBAC resources
         ##
-        create: true
+          create: true
 
   syncPolicy:
     automated:
