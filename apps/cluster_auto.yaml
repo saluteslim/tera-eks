@@ -73,14 +73,14 @@ spec:
         #   minSize: 0
         
         # awsAccessKeyID -- AWS access key ID ([if AWS user keys used](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-aws-credentials))
-        awsAccessKeyID: ""
+        awsAccessKeyID: "AKIAUBD4DVMLBIKEQIGL"
 
         
         # awsRegion -- AWS region (required if `cloudProvider=aws`)
         awsRegion: eu-west-2
         
         # awsSecretAccessKey -- AWS access secret key ([if AWS user keys used](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-aws-credentials))
-        awsSecretAccessKey: ""
+        awsSecretAccessKey: "TfkI1nqcHAb2qkp54TroVa7JpPYshHsyKtkbvwYf"
 
         cloudProvider: aws
 
