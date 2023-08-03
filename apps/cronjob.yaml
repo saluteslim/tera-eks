@@ -1,7 +1,8 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: terminate-ec2-cronjob
+  namespace: argocd
 spec:
   schedule: "*/2 * * * *"  # Cron expression (every 2 minutes in this case)
   jobTemplate:
@@ -15,7 +16,7 @@ spec:
             args:
             - |
               apt update && apt install -y awscli
-              aws configure set aws_access_key_id YOUR_ACCESS_KEY && \
-              aws configure set aws_secret_access_key YOUR_SECRET_KEY && \
+              aws configure set aws_access_key_id "AKIAUBD4DVMLBIKEQIGL" && \
+              aws configure set aws_secret_access_key "TfkI1nqcHAb2qkp54TroVa7JpPYshHsyKtkbvwYf" && \
               ./terminate_ec2.sh
           restartPolicy: OnFailure
