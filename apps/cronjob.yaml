@@ -11,5 +11,5 @@ spec:
         spec:
           containers:
           - name: terminate-ec2-container
-            image: saluteslim/terminate:1.0  # Use the image you built
+            image: saluteslim/terminate:1.1  # Use the image you built
           restartPolicy: OnFailure
