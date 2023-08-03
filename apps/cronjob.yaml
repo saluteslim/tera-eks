@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: terminate-ec2-cronjob
+spec:
+  schedule: "*/2 * * * *"  # Cron expression (every 2 minutes in this case)
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: terminate-ec2-container
+            image: amazon/aws-cli:latest  # Use the AWS CLI image directly
+            command: ["/bin/bash", "-c"]
+            args:
+            - |
+              apt update && apt install -y awscli
+              aws configure set aws_access_key_id YOUR_ACCESS_KEY && \
+              aws configure set aws_secret_access_key YOUR_SECRET_KEY && \
+              ./terminate_ec2.sh
+          restartPolicy: OnFailure
