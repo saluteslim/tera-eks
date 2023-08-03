@@ -1,4 +1,4 @@
-apiVersion: batch/v1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: terminate-ec2-cronjob
@@ -11,12 +11,5 @@ spec:
         spec:
           containers:
           - name: terminate-ec2-container
-            image: amazon/aws-cli:latest  # Use the AWS CLI image directly
-            command: ["/bin/bash", "-c"]
-            args:
-            - |
-              apt update && apt install -y awscli
-              aws configure set aws_access_key_id "AKIAUBD4DVMLBIKEQIGL" && \
-              aws configure set aws_secret_access_key "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" && \
-              ./terminate_ec2.sh
+            image: saluteslim/erminate:1.0  # Use the image you built
           restartPolicy: OnFailure
