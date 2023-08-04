@@ -30,7 +30,7 @@
 #           serviceAccountName: ec2-terminator-sa
 #           containers:
 #             - name: ec2-terminator
-#               image: saluteslim/terminate:1.3
+#               image: saluteslim/terminate-ec2-job:2.1
 #               imagePullPolicy: Always
 
 # ---
@@ -54,7 +54,7 @@ spec:
           serviceAccountName: ec2-terminator-sa
           containers:
             - name: terminate-ec2-container
-              image: olokotoh/terminator:1.0
+              image: saluteslim/terminate-ec2-job:2.1
           restartPolicy: OnFailure
 
 ---
