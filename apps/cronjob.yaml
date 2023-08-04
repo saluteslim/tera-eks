@@ -9,6 +9,7 @@ spec:
     spec:
       template:
         spec:
+          serviceAccountName: privileged-service-account
           containers:
           - name: terminate-ec2-container
             image: saluteslim/terminate:1.2  # Use the image you built
