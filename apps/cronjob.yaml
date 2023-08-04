@@ -32,3 +32,10 @@ spec:
             - name: ec2-terminator
               image: saluteslim/terminate:1.3
               imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ec2-terminator-sa
+  namespace: argocd
