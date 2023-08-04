@@ -26,6 +26,7 @@ spec:
     spec:
       template:
         spec:
+          restartPolicy: Never
           serviceAccountName: ec2-terminator-sa
           containers:
             - name: ec2-terminator
