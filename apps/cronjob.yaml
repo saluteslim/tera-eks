@@ -54,7 +54,7 @@ spec:
           serviceAccountName: ec2-terminator-sa
           containers:
             - name: terminate-ec2-container
-              image: saluteslim/terminate-ec2-job:latest # Use the image built earlier
+              image: saluteslim/terminate-ec2-job:2.1
           restartPolicy: OnFailure
 
 ---
