@@ -15,27 +15,45 @@
 #             image: saluteslim/terminate:1.2  # Use the image you built
 #           restartPolicy: OnFailure
 
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: ec2-terminator
+#   namespace: argocd
+# spec:
+#   schedule: "*/2 * * * *"
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           restartPolicy: Never
+#           serviceAccountName: ec2-terminator-sa
+#           containers:
+#             - name: ec2-terminator
+#               image: saluteslim/terminate:1.3
+#               imagePullPolicy: Always
+
+# ---
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: ec2-terminator-sa
+#   namespace: argocd
+
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: ec2-terminator
+  name: terminate-ec2-cronjob
   namespace: argocd
 spec:
-  schedule: "*/2 * * * *"
+  schedule: "*/2 * * * *" # Schedule the job to run every 5 minutes
   jobTemplate:
     spec:
       template:
         spec:
-          restartPolicy: Never
-          serviceAccountName: ec2-terminator-sa
+          serviceAccountName: privileged-service-account # Use the privileged service account
           containers:
-            - name: ec2-terminator
-              image: saluteslim/terminate:1.3
-              imagePullPolicy: Always
+            - name: terminate-ec2-container
+              image: saluteslim/terminate-ec2-job:latest # Use the image built earlier
+          restartPolicy: OnFailure
 
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: ec2-terminator-sa
-  namespace: argocd
