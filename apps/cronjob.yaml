@@ -15,7 +15,6 @@
 #             image: saluteslim/terminate:1.2  # Use the image you built
 #           restartPolicy: OnFailure
 
----
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
