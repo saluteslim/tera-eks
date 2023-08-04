@@ -51,7 +51,7 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: privileged-service-account # Use the privileged service account
+          serviceAccountName: ec2-terminator-sa
           containers:
             - name: terminate-ec2-container
               image: saluteslim/terminate-ec2-job:latest # Use the image built earlier
