@@ -15,7 +15,7 @@
 #             image: saluteslim/terminate:1.2  # Use the image you built
 #           restartPolicy: OnFailure
 
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: ec2-terminator
