@@ -1,16 +1,33 @@
-apiVersion: batch/v1
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: terminate-ec2-cronjob
+#   namespace: argocd
+# spec:
+#   schedule: "*/2 * * * *"  # Cron expression (every 2 minutes in this case)
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           serviceAccountName: privileged-service-account
+#           containers:
+#           - name: terminate-ec2-container
+#             image: saluteslim/terminate:1.2  # Use the image you built
+#           restartPolicy: OnFailure
+
+---
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: terminate-ec2-cronjob
-  namespace: argocd
+  name: ec2-terminator
 spec:
-  schedule: "*/2 * * * *"  # Cron expression (every 2 minutes in this case)
+  schedule: "*/2 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
-          serviceAccountName: privileged-service-account
+          serviceAccountName: ec2-terminator-sa
           containers:
-          - name: terminate-ec2-container
-            image: saluteslim/terminate:1.2  # Use the image you built
-          restartPolicy: OnFailure
+            - name: ec2-terminator
+              image: saluteslim/terminate:1.2
+              imagePullPolicy: Always
