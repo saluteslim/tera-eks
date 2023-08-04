@@ -20,6 +20,7 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: ec2-terminator
+  namespace: argocd
 spec:
   schedule: "*/2 * * * *"
   jobTemplate:
