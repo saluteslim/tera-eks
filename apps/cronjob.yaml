@@ -57,3 +57,9 @@ spec:
               image: saluteslim/terminate-ec2-job:latest # Use the image built earlier
           restartPolicy: OnFailure
 
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ec2-terminator-sa
+  namespace: argocd
