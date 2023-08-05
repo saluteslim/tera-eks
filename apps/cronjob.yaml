@@ -75,6 +75,7 @@ spec:
     spec:
       template:
         spec:
+          serviceAccountName: ec2-terminator-sa
           containers:
             - name: terminate-ec2-instances
               image: saluteslim/bash:1.2
@@ -86,3 +87,9 @@ spec:
                 - name: AWS_DEFAULT_REGION
                   value: "eu-west-2"
           restartPolicy: OnFailure
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ec2-terminator-sa
+  namespace: argocd          
