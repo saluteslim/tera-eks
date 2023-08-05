@@ -40,26 +40,49 @@
 #   name: ec2-terminator-sa
 #   namespace: argocd
 
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: terminate-ec2-cronjob
+#   namespace: argocd
+# spec:
+#   schedule: "*/2 * * * *" # Schedule the job to run every 2 minutes
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           serviceAccountName: ec2-terminator-sa
+#           containers:
+#             - name: terminate-ec2-container
+#               image: saluteslim/bash:1.1
+#           restartPolicy: OnFailure
+
+# ---
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: ec2-terminator-sa
+#   namespace: argocd
+
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: terminate-ec2-cronjob
+  name: terminate-ec2
   namespace: argocd
 spec:
-  schedule: "*/2 * * * *" # Schedule the job to run every 2 minutes
+  schedule: "*/4 * * * *" 
   jobTemplate:
     spec:
       template:
         spec:
-          serviceAccountName: ec2-terminator-sa
           containers:
-            - name: terminate-ec2-container
-              image: saluteslim/bash:1.1
+            - name: terminate-ec2-instances
+              image: your-container-registry/terminate_ec2_instances:latest
+              env:
+                - name: AWS_ACCESS_KEY_ID
+                  value: "AKIAUBD4DVMLBIKEQIGL"
+                - name: AWS_SECRET_ACCESS_KEY
+                  value: "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"
+                - name: AWS_DEFAULT_REGION
+                  value: "eu-west-2"
           restartPolicy: OnFailure
-
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: ec2-terminator-sa
-  namespace: argocd
