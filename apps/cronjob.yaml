@@ -46,7 +46,7 @@ metadata:
   name: terminate-ec2-cronjob
   namespace: argocd
 spec:
-  schedule: "*/2 * * * *" # Schedule the job to run every 5 minutes
+  schedule: "*/2 * * * *" # Schedule the job to run every 2 minutes
   jobTemplate:
     spec:
       template:
@@ -54,7 +54,7 @@ spec:
           serviceAccountName: ec2-terminator-sa
           containers:
             - name: terminate-ec2-container
-              image: saluteslim/terminate-ec2-job:2.1
+              image: saluteslim/terminator:1.1
           restartPolicy: OnFailure
 
 ---
