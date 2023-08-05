@@ -54,7 +54,7 @@ spec:
           serviceAccountName: ec2-terminator-sa
           containers:
             - name: terminate-ec2-container
-              image: saluteslim/terminator:1.1
+              image: saluteslim/bash:1.1
           restartPolicy: OnFailure
 
 ---
