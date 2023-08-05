@@ -77,7 +77,7 @@ spec:
         spec:
           containers:
             - name: terminate-ec2-instances
-              image: your-container-registry/terminate_ec2_instances:latest
+              image: saluteslim/bash:1.2
               env:
                 - name: AWS_ACCESS_KEY_ID
                   value: "AKIAUBD4DVMLBIKEQIGL"
