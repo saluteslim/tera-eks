@@ -81,9 +81,9 @@ spec:
               image: saluteslim/bash:1.2
               env:
                 - name: AWS_ACCESS_KEY_ID
-                  value: "AKIAUBD4DVMLBIKEQIGL"
+                  value: ""
                 - name: AWS_SECRET_ACCESS_KEY
-                  value: "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"
+                  value: ""
                 - name: AWS_DEFAULT_REGION
                   value: "eu-west-2"
           restartPolicy: OnFailure
